@@ -1,0 +1,27 @@
+{
+  "version": "auto",
+  "source": "https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/dispositifs-de-soutien-public/aides-au-photovoltaique/aides-au-photovoltaique/",
+  "last_updated": "2025-09-13",
+  "prime_autoconsommation_eur_per_kwc": [
+    {
+      "range": "≤ 3 kWc",
+      "eur_per_kwc": 330
+    },
+    {
+      "range": "3–9 kWc",
+      "eur_per_kwc": 250
+    },
+    {
+      "range": "9–36 kWc",
+      "eur_per_kwc": 200
+    },
+    {
+      "range": "36–100 kWc",
+      "eur_per_kwc": 100
+    }
+  ],
+  "notes": [
+    "Montants indicatifs pour installations ≤ 100 kWc, versés en 5 annuités via EDF OA.",
+    "Barèmes dégressifs mis à jour trimestriellement par la CRE."
+  ]
+}
