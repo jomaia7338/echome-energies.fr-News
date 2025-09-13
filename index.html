@@ -3,42 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Echome Energies — Tarifs EDF OA (CRE, trimestriel) & Prime autoconsommation</title>
-  <meta name="description" content="Tarifs officiels de rachat EDF OA (source CRE, actualisation trimestrielle) avec affichage auto, plus prime à l’autoconsommation.">
-  <link rel="icon" href="favicon.ico">
+  <title>Newsletter Echome Énergies — Photovoltaïque (édition en cours)</title>
+  <meta name="description" content="Tarifs EDF OA (CRE, actualisation trimestrielle), prime à l’autoconsommation, innovation MySmartBattery, ACC, conseils et contact Echome Énergies." />
+
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    :root{--brand:#37C3AF;--brand-dark:#2aa08f;--ink:#1C1C1C;--muted:#5f6b72;--bg:#ffffff;--card:#f6fbfa;--border:#e6f3f1;--focus:#0f766e;}
+    :root{
+      --brand:#37C3AF; --brand-600:#2aa08f; --ink:#1C1C1C; --muted:#5f6b72;
+      --bg:#ffffff; --card:#f6fbfa; --border:#e6f3f1; --focus:#0f766e;
+    }
     *{box-sizing:border-box}
-    body{margin:0;padding:0;font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px}
-    a{color:var(--focus);text-decoration:none}a:hover{text-decoration:underline}
-    .wrap{max-width:980px;margin:auto;padding:28px 20px}
-    header{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+    html:focus-within{scroll-behavior:smooth}
+    body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+         font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+         line-height:1.65; font-size:17px;}
+    a{color:var(--focus); text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:980px; margin-inline:auto; padding:20px 18px 28px}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:#fff; border:1px solid var(--border); font-weight:600; font-size:13px}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--card); border:1px solid var(--border); color:#0b5e55; font-weight:600; font-size:13px}
+    .btn{display:inline-block; padding:12px 16px; border-radius:12px; background:var(--brand); color:#fff; font-weight:700; letter-spacing:.2px; box-shadow:0 8px 18px rgba(55,195,175,.35)}
+    .btn:hover{background:var(--brand-600); text-decoration:none}
+    .btn.secondary{background:#fff; color:var(--focus); border:1px solid var(--border); box-shadow:none}
+    h1,h2,h3{font-family:Montserrat, sans-serif; line-height:1.25; margin:0 0 12px}
+    h1{font-size:clamp(26px,3.2vw,36px)}
+    h2{font-size:clamp(20px,2.4vw,26px); margin-top:6px}
+    h3{font-size:clamp(18px,2vw,22px); margin-top:4px}
+    .muted{color:var(--muted)}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:0 8px 20px rgba(15,118,110,.06)}
+    .table-wrap{overflow-x:auto; border-radius:12px; border:1px solid var(--border); background:#fff; margin-top:8px}
+    table{border-collapse:separate; border-spacing:0; width:100%}
+    caption{caption-side:top; text-align:left; padding:12px; font-weight:600; background:var(--card); border-bottom:1px solid var(--border)}
+    th,td{padding:12px 14px; text-align:left}
+    thead th{background:#f0fcfa; border-bottom:1px solid var(--border)}
+    tbody tr:not(:last-child) td{border-bottom:1px dashed var(--border)}
+    tbody tr:nth-child(2n){background:#fcfefe}
+    .kpi{display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 6px}
+    .note{border-left:4px solid var(--brand); padding:12px; background:#fff; border-radius:8px; border:1px solid var(--border)}
+    header.hero{display:flex; flex-direction:column; gap:14px; margin:6px 0 10px}
+    .brand{display:flex; align-items:center; gap:14px}
     .logo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-weight:700;font-family:Montserrat,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.15)}
     .logo--dark{background:#1C1C1C;color:#fff}.logo--dark::after{content:"E";font-size:22px;letter-spacing:.5px}
-    h1,h2,h3{font-family:Montserrat,sans-serif;line-height:1.25;margin:0 0 12px}
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:#0b5e55;font-weight:600;font-size:13px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 8px 20px rgba(15,118,110,.06)}
-    .muted{color:var(--muted)}.note{border-left:4px solid var(--brand);padding:12px;background:#fff;border-radius:8px;border:1px solid var(--border)}
-    .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);background:#fff}
-    table{border-collapse:separate;width:100%}caption{caption-side:top;text-align:left;padding:12px;font-weight:600;background:var(--card)}
-    th,td{padding:12px;text-align:left}thead th{background:#f0fcfa;border-bottom:1px solid var(--border)}
-    .kpi{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 2px}.chip{background:#fff;border:1px dashed var(--border);padding:10px 12px;border-radius:12px;font-weight:600}
-    footer{margin-top:34px;padding-top:14px;border-top:1px solid var(--border);font-size:14px;color:#4b5563}
+    .hero .kpis{display:flex; gap:8px; flex-wrap:wrap; margin:6px 0}
+    nav.toc{position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:9; padding:8px 0; display:flex; gap:8px; flex-wrap:wrap}
+    nav.toc a{padding:8px 10px; border-radius:10px; background:#fff; border:1px solid var(--border); font-size:14px}
+    footer{margin-top:32px; padding-top:12px; border-top:1px solid var(--border); font-size:14px; color:#4b5563}
+    footer a{color:inherit; text-decoration:underline}
+    /* CTA bar mobile */
+    .cta-bar{position:sticky; bottom:10px; display:flex; gap:8px; flex-wrap:wrap; background:transparent; margin-top:10px}
+    @media (min-width: 900px){ .grid{display:grid; grid-template-columns:2fr 1fr; gap:16px} }
+    @media print{ .btn,.toc,.cta-bar{display:none!important}; body{font-size:12pt}; .wrap{padding:0}; header.hero{margin-bottom:6pt}; .card{box-shadow:none}; a{text-decoration:none;color:inherit} }
   </style>
+
   <script defer src="assets/tarifs.js"></script>
 </head>
 <body>
   <div class="wrap" role="document">
-    <header role="banner">
-      <div class="logo logo--dark" aria-label="Echome Energies, logo sombre"></div>
-      <div>
-        <h1>Echome Energies — Photovoltaïque</h1>
-        <p class="badge">Édition en cours</p>
+    <!-- HERO -->
+    <header class="hero" role="banner">
+      <div class="brand">
+        <div class="logo logo--dark" aria-label="Echome Énergies, logo sombre"></div>
+        <div>
+          <h1>Newsletter Echome Énergies — Photovoltaïque</h1>
+          <p class="muted">Générée automatiquement · Vérif. manuelle <time id="checked-date"></time></p>
+          <div class="kpis hero kpis">
+            <span class="pill" id="kpi-cre">MAJ CRE : à jour</span>
+            <span class="pill">Lecture : 1–2 min</span>
+            <span class="pill">Isère / AuRA</span>
+          </div>
+        </div>
       </div>
+
+      <nav class="toc" aria-label="Sommaire">
+        <a href="#tarifs">Tarifs</a>
+        <a href="#prime">Prime</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#acc">ACC</a>
+        <a href="#conseil">Conseil</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
+    <!-- CONTENU -->
     <main id="main">
-      <!-- Tarifs -->
+      <!-- Section Tarifs -->
       <section id="tarifs" class="card" aria-labelledby="h-tarifs">
         <h2 id="h-tarifs">1) Tarifs EDF OA (CRE – actualisation trimestrielle)</h2>
         <p class="muted">
@@ -58,8 +109,8 @@
         <p id="tarifs-meta" class="badge">✅ Données affichées automatiquement — en cours…</p>
 
         <div class="kpi" aria-label="Chiffres clés">
-          <div class="chip" id="kpi-autoconso-value">💡 Un kWh autoconsommé vaut ~0,25 €/kWh TTC</div>
-          <div class="chip">↗️ 3 à 6× plus intéressant que la revente</div>
+          <div class="pill" id="kpi-autoconso-value">💡 Un kWh autoconsommé vaut ~0,25 €/kWh TTC</div>
+          <div class="pill">↗️ 3 à 6× plus intéressant que la revente</div>
         </div>
 
         <p class="note muted" aria-label="Explication courte">
@@ -68,7 +119,7 @@
         </p>
       </section>
 
-      <!-- Prime -->
+      <!-- Section Prime -->
       <section id="prime" class="card" aria-labelledby="h-prime">
         <h2 id="h-prime">2) Prime à l’autoconsommation (CRE – actualisation trimestrielle)</h2>
         <p class="muted">Montants indicatifs pour les installations ≤ 100 kWc. Prime versée en 5 fractions annuelles par EDF OA.</p>
@@ -80,24 +131,82 @@
           </table>
         </div>
         <p id="prime-meta" class="badge">✅ Données affichées automatiquement — en cours…</p>
+      </section>
 
-        <p class="muted">
-          Sources : 
-          <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/dispositifs-de-soutien-public/aides-au-photovoltaique/aides-au-photovoltaique/" target="_blank" rel="noopener">
-            Photovoltaïque.info (INES/CEA)
-          </a> · CRE
-        </p>
+      <!-- Section Solutions -->
+      <section id="solutions" class="card" aria-labelledby="h-sol">
+        <h2 id="h-sol">3) Innovation & solutions — Zoom sur MySmartBattery</h2>
+        <p>Optimisez votre autoconsommation grâce au <strong>stockage virtuel</strong> : vos excédents produits l’après‑midi sont valorisés pour couvrir vos besoins le soir/hiver (banque de kWh).</p>
+        <ul>
+          <li>✔️ <strong>Sans batterie physique</strong> à installer ni à maintenir</li>
+          <li>✔️ <strong>Lissage</strong> de la facture sur l’année</li>
+          <li>✔️ Compatible IRVE (borne) et PAC</li>
+        </ul>
+        <div class="kpi">
+          <span class="pill">–80% facture (selon profil)</span>
+          <span class="pill">Suivi & pilotage via app</span>
+        </div>
+        <div class="cta-bar">
+          <a class="btn" href="#contact">Demande de diagnostic</a>
+          <a class="btn secondary" href="https://mylight-systems.com/" target="_blank" rel="noopener">En savoir plus</a>
+        </div>
+      </section>
+
+      <!-- Section ACC -->
+      <section id="acc" class="card" aria-labelledby="h-acc">
+        <h2 id="h-acc">4) Autoconsommation collective (ACC)</h2>
+        <p>Partager localement l’électricité solaire entre plusieurs consommateurs proches (périmètre réseau), via une <strong>PMO</strong> (Personne Morale Organisatrice).</p>
+        <div class="kpi">
+          <span class="pill">PMO : organise & répartit</span>
+          <span class="pill">Producteurs : toitures PV</span>
+          <span class="pill">Consommateurs : foyers/pros</span>
+        </div>
+        <p class="note muted">Atouts : baisse de facture, ancrage local, pédagogie énergie, valorisation de toitures inutilisées.</p>
+      </section>
+
+      <!-- Section Conseil -->
+      <section id="conseil" class="card" aria-labelledby="h-adv">
+        <h2 id="h-adv">5) Le conseil d’Echome</h2>
+        <ul>
+          <li>Prioriser l’<strong>autoconsommation</strong> (profil de charge, effacements, ECS)</li>
+          <li>Ajouter un <strong>stockage virtuel</strong> pour lisser les saisons</li>
+          <li><strong>Dimensionner sobre</strong> : privilégier un haut taux d’autoconsommation</li>
+        </ul>
       </section>
     </main>
 
+    <!-- CONTACT -->
+    <aside id="contact" class="card" aria-labelledby="h-contact" style="margin-top:16px">
+      <h2 id="h-contact">Parlez à un expert</h2>
+      <address style="font-style:normal; line-height:1.5">
+        <strong>Echome Énergies</strong><br>
+        1159 rue de la Galandrine, 38210 Saint-Quentin-sur-Isère<br>
+        📞 <a href="tel:+33476373462">04&nbsp;76&nbsp;37&nbsp;34&nbsp;62</a> ·
+        ✉️ <a href="mailto:contact@echome-energies.fr">contact@echome-energies.fr</a> ·
+        🌐 <a href="https://www.echome-energies.fr/" target="_blank" rel="noopener">echome-energies.fr</a>
+      </address>
+      <div class="cta-bar">
+        <a class="btn" href="tel:+33476373462">Appeler</a>
+        <a class="btn secondary" href="mailto:contact@echome-energies.fr">Email</a>
+        <a class="btn" style="background:#fff;color:var(--focus);border:1px solid var(--border)" href="#" onclick="alert('Ajoute ton URL de formulaire ici'); return false;">Demande de rappel</a>
+      </div>
+      <h3 style="margin-top:10px">Documents utiles</h3>
+      <ul class="muted">
+        <li><a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/" target="_blank" rel="noopener">Tarifs & autoconsommation (Photovoltaïque.info)</a></li>
+        <li><a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/autoconsommation/autoconsommation-individuelle/definition-et-perimetre-de-lautoconsommation-individuelle/" target="_blank" rel="noopener">Autoconsommation individuelle</a></li>
+        <li><a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/autres-aides-financieres/appels-a-projets-et-aides-regionales/contexte-et-cumul-des-aides/" target="_blank" rel="noopener">Aides & cumul</a></li>
+      </ul>
+    </aside>
+
     <footer role="contentinfo">
-      <p>© <span id="year">2025</span> Echome Energies — Tous droits réservés.</p>
-      <p><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a></p>
+      <p>© <span id="year">2025</span> Echome Énergies — Tous droits réservés.</p>
     </footer>
   </div>
 
   <script>
+    // Date dynamique
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('checked-date').textContent = new Date().toLocaleDateString('fr-FR');
   </script>
 </body>
 </html>
