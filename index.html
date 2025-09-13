@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Echome Énergies — Bulletin Photovoltaïque</title>
-  <meta name="description" content="Tarifs EDF OA (CRE), prime à l’autoconsommation, solutions et contact Echome Énergies." />
+  <title>Newsletter — Echome Énergies (Modèle)</title>
+  <meta name="description" content="Modèle de newsletter Echome Énergies : tarifs EDF OA (CRE), prime à l’autoconsommation, rubriques thématiques modulaires." />
 
   <style>
     :root{
@@ -28,6 +28,7 @@
     section{padding:18px 0; border-top:1px solid var(--line)}
     section:first-of-type{border-top:none}
     h2{font:600 18px/1.35 Inter,system-ui,Segoe UI,Roboto,Arial; margin:0 0 10px}
+    h3{font:600 15px/1.35 Inter,system-ui,Segoe UI,Roboto,Arial; margin:14px 0 6px}
     .sub{color:var(--sub); margin:0 0 14px}
     .table-wrap{border:1px solid var(--line); border-radius:10px; overflow-x:auto; background:#fff}
     table{width:100%; border-collapse:separate; border-spacing:0}
@@ -46,12 +47,9 @@
     footer{margin-top:24px; padding-top:12px; border-top:1px solid var(--line); color:#5a6975; font-size:13px}
     footer a{color:inherit; text-decoration:underline}
 
-    /* Compactage tarifs & prime */
+    /* Compactage tarifs & prime (modèle) */
     .fold { border:1px solid var(--line); border-radius:10px; background:#fff; }
-    .fold > summary {
-      list-style:none; cursor:pointer; padding:10px 12px; font-weight:600;
-      border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px;
-    }
+    .fold > summary { list-style:none; cursor:pointer; padding:10px 12px; font-weight:600; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px; }
     .fold > summary::-webkit-details-marker { display:none; }
     .fold > summary::before { content:"▸"; transform:rotate(0deg); transition:.2s; }
     .fold[open] > summary::before { transform:rotate(90deg); }
@@ -64,28 +62,34 @@
     .synth .chip { background:#f8fafb; border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-weight:600; font-size:13px }
 
     @media (max-width: 720px){
-      .compact-table th:nth-child(3), .compact-table td:nth-child(3){ display:none; }
+      .compact-table th:nth-child(3), .compact-table td:nth-child(3){ display:none; } /* cache "Exemple" */
       .table-wrap{ border:none; background:transparent }
       .fold{ border:1px solid var(--line); }
     }
+
+    /* Marqueurs de thème (optionnels) */
+    [data-theme] .slot-title{ display:flex; align-items:center; gap:.5rem }
+    [data-theme] .slot-title small{ color:var(--sub); font-weight:500 }
   </style>
 </head>
 <body>
   <div class="wrap" role="document">
+    <!-- En-tête -->
     <header role="banner">
       <div class="logo" aria-hidden="true"></div>
       <div>
-        <h1>Bulletin Photovoltaïque — Echome Énergies</h1>
-        <p class="lede">Tarifs officiels, prime à l’autoconsommation, solutions d’optimisation et contacts.</p>
+        <h1>Newsletter — Echome Énergies</h1>
+        <p class="lede">Tarifs officiels, prime à l’autoconsommation, rubriques thématiques.</p>
       </div>
     </header>
 
+    <!-- Méta édition -->
     <p class="meta">
-      <span><strong>Dernière mise à jour :</strong> <time id="last-update"></time></span>
+      <span><strong>Édition :</strong> <time id="edition-date"></time></span>
       <span><strong>Sources :</strong> CRE · Photovoltaïque.info</span>
     </p>
 
-    <!-- Section Tarifs -->
+    <!-- ===== SECTION 1 : TARIFS (AUTO) ===== -->
     <section id="tarifs" aria-labelledby="h-tarifs">
       <h2 id="h-tarifs">Tarifs EDF OA (CRE – actualisation trimestrielle)</h2>
       <p class="sources">Références : 
@@ -93,6 +97,7 @@
         <a href="https://www.cre.fr/" target="_blank" rel="noopener">CRE</a>.
       </p>
 
+      <!-- Synthèse compacte auto-remplie -->
       <div class="synth">
         <span class="chip">≤ 9 kWc : <strong id="syn-9">…</strong> €/kWh</span>
         <span class="chip">9–36 kWc : <strong id="syn-36">…</strong> €/kWh</span>
@@ -100,14 +105,13 @@
       </div>
       <p id="tarifs-meta" class="badge">Données à jour</p>
 
+      <!-- Détail repliable -->
       <details class="fold">
         <summary>Voir le détail des barèmes</summary>
         <div class="table-wrap">
           <table class="compact-table">
             <caption id="tarifs-caption">Rachat du surplus — EDF OA</caption>
-            <thead>
-              <tr><th>Puissance</th><th>Tarif (€/kWh)</th><th>Exemple</th></tr>
-            </thead>
+            <thead><tr><th>Puissance</th><th>Tarif (€/kWh)</th><th>Exemple</th></tr></thead>
             <tbody id="tarifs-table-body">
               <tr class="fallback-row"><td colspan="3">Chargement…</td></tr>
             </tbody>
@@ -116,11 +120,12 @@
       </details>
     </section>
 
-    <!-- Section Prime -->
+    <!-- ===== SECTION 2 : PRIME (AUTO) ===== -->
     <section id="prime" aria-labelledby="h-prime">
       <h2 id="h-prime">Prime à l’autoconsommation (≤ 100 kWc)</h2>
       <p class="sub">Aide à l’investissement versée en 5 annuités via EDF OA. Montants fixés par la CRE, révisés trimestriellement.</p>
 
+      <!-- Synthèse compacte auto-remplie -->
       <div class="synth">
         <span class="chip">≤ 3 kWc : <strong id="syn-p3">…</strong> €/kWc</span>
         <span class="chip">3–9 kWc : <strong id="syn-p9">…</strong> €/kWc</span>
@@ -129,6 +134,7 @@
       </div>
       <p id="prime-meta" class="badge">Données à jour</p>
 
+      <!-- Détail repliable -->
       <details class="fold">
         <summary>Voir le détail du barème de prime</summary>
         <div class="table-wrap">
@@ -142,22 +148,46 @@
       </details>
     </section>
 
-    <!-- Section Solutions -->
-    <section id="solutions" aria-labelledby="h-sol">
-      <h2 id="h-sol">Solutions d’optimisation — stockage virtuel & pilotage</h2>
-      <p class="sub">Élever le taux d’autoconsommation sans batterie physique, lisser la facture sur l’année, piloter les usages.</p>
+    <!-- ===== SECTION 3 : THÉMATIQUE (ex. Innovation & Solutions) ===== -->
+    <section id="theme-1" data-theme="innovation">
+      <div class="slot-title"><h2>Innovation & Solutions</h2><small>(modulaire)</small></div>
+      <p class="sub"><!-- TODO: phrase d’ouverture courte (1–2 lignes) --></p>
       <ul class="clean">
-        <li>Stockage virtuel de la production excédentaire (valorisation saisonnière).</li>
-        <li>Pilotage des postes flexibles : eau chaude sanitaire, recharge, chauffage.</li>
-        <li>Suivi conso/production et alertes depuis l’application.</li>
+        <!-- TODO: 3 points concrets (fonction, bénéfice, preuve) -->
+        <li><!-- ex. Stockage virtuel : lissage saisonnier de la facture --></li>
+        <li><!-- ex. Pilotage conso (ECS, IRVE, PAC) --></li>
+        <li><!-- ex. App & alertes (suivi production/consommation) --></li>
       </ul>
       <div class="cta">
-        <a class="btn primary" href="#contact">Étudier mon profil</a>
-        <a class="btn" href="https://mylight-systems.com/" target="_blank" rel="noopener">Documentation éditeur</a>
+        <a class="btn primary" href="#contact">Demander un diagnostic</a>
+        <a class="btn" href="#" target="_blank" rel="noopener"><!-- TODO: Lien doc éditeur --></a>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- ===== SECTION 4 : THÉMATIQUE (ex. ACC) ===== -->
+    <section id="theme-2" data-theme="acc">
+      <div class="slot-title"><h2>Autoconsommation collective</h2><small>(modulaire)</small></div>
+      <p class="sub"><!-- TODO: 1 ligne claire (PMO, périmètre réseau, partage local) --></p>
+      <ul class="clean">
+        <!-- TODO: 3 points “rôles & bénéfices” -->
+        <li><!-- PMO : organise, répartit --></li>
+        <li><!-- Producteurs : toitures PV --></li>
+        <li><!-- Consommateurs : foyers/pros ; bénéfices : pédagogie + facture --></li>
+      </ul>
+    </section>
+
+    <!-- ===== SECTION 5 : THÉMATIQUE (ex. Conseil) ===== -->
+    <section id="theme-3" data-theme="conseil">
+      <div class="slot-title"><h2>Conseil d’expert</h2><small>(modulaire)</small></div>
+      <ul class="clean">
+        <!-- TODO: 3 recommandations actionnables -->
+        <li><!-- Dimensionnement pour maximiser l’autoconsommation --></li>
+        <li><!-- Effacements / programmations (ECS, charge, chauffage) --></li>
+        <li><!-- Suivi et maintenance préventive --></li>
+      </ul>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
     <section id="contact" aria-labelledby="h-contact">
       <h2 id="h-contact">Contact</h2>
       <p class="sub">Echome Énergies — 1159 rue de la Galandrine, 38210 Saint-Quentin-sur-Isère</p>
@@ -176,37 +206,37 @@
   <!-- Scripts -->
   <script defer src="assets/tarifs.js"></script>
   <script>
-    // Remplissage des dates
+    // Date édition
     const now = new Date();
     document.getElementById('year').textContent = now.getFullYear();
-    document.getElementById('last-update').textContent = now.toLocaleDateString('fr-FR');
+    document.getElementById('edition-date').textContent = now.toLocaleDateString('fr-FR');
 
-    // Auto-remplissage des chips après chargement des tableaux
+    // Remplissage des chips après que tarifs.js ait peuplé les tableaux
     (function(){
-      function onceFilled(selector, cb){
+      function onFilled(selector, cb){
         const el = document.querySelector(selector);
         if(!el) return;
         const check = ()=> { if(el.querySelector('tr') && !el.querySelector('.fallback-row')) { cb(); obs.disconnect(); } };
         const obs = new MutationObserver(check); obs.observe(el,{childList:true,subtree:true}); check();
       }
       // Tarifs
-      onceFilled('#tarifs-table-body', function(){
+      onFilled('#tarifs-table-body', function(){
         const rows = Array.from(document.querySelectorAll('#tarifs-table-body tr'));
-        function getVal(label){ const r = rows.find(tr=>tr.firstElementChild?.textContent.trim().startsWith(label)); return r?.children?.[1]?.textContent.trim()||null; }
-        if(getVal('≤ 9')) document.getElementById('syn-9').textContent = getVal('≤ 9');
-        if(getVal('9–36')) document.getElementById('syn-36').textContent = getVal('9–36');
-        if(getVal('36–100')) document.getElementById('syn-100').textContent = getVal('36–100');
+        const get = (start)=> rows.find(tr => tr.firstElementChild?.textContent.trim().startsWith(start))?.children?.[1]?.textContent.trim() || null;
+        const v9 = get('≤ 9');    if(v9)   document.getElementById('syn-9').textContent   = v9;
+        const v36 = get('9–36')||get('9-36'); if(v36)  document.getElementById('syn-36').textContent  = v36;
+        const v100= get('36–100')||get('36-100'); if(v100) document.getElementById('syn-100').textContent = v100;
       });
       // Primes
-      onceFilled('#prime-table-body', function(){
+      onFilled('#prime-table-body', function(){
         const rows = Array.from(document.querySelectorAll('#prime-table-body tr'));
         rows.forEach(tr=>{
-          const label = tr.children?.[0]?.textContent.trim();
-          const val = tr.children?.[1]?.textContent.trim();
-          if(label?.startsWith('≤ 3')) document.getElementById('syn-p3').textContent = val;
-          if(label?.startsWith('3–9')) document.getElementById('syn-p9').textContent = val;
-          if(label?.startsWith('9–36')) document.getElementById('syn-p36').textContent = val;
-          if(label?.startsWith('36–100')) document.getElementById('syn-p100').textContent = val;
+          const k = tr.children?.[0]?.textContent.trim() || '';
+          const v = tr.children?.[1]?.textContent.trim() || '';
+          if(k.startsWith('≤ 3'))     document.getElementById('syn-p3').textContent = v;
+          if(k.startsWith('3–9')||k.startsWith('3-9'))  document.getElementById('syn-p9').textContent = v;
+          if(k.startsWith('9–36')||k.startsWith('9-36'))document.getElementById('syn-p36').textContent = v;
+          if(k.startsWith('36–100')||k.startsWith('36-100')) document.getElementById('syn-p100').textContent = v;
         });
       });
     })();
