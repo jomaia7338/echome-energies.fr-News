@@ -71,8 +71,9 @@ def parse(html: str):
         first = token[0] if token else None
         found = None
         for rg, val in rows:
-            if first and re.search(rf"\\b{re.escape(first)}\\b", rg):
-                found = val; break
+          # word boundary requires double escaping inside f-string if used; we avoid f-string here
+          if first and re.search(r"\b"+re.escape(first)+r"\b", rg):
+              found = val; break
         out.append( (label, found if found is not None else fallback) )
     return out
 
