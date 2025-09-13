@@ -20,12 +20,11 @@
     }
     .wrap{max-width:960px; margin-inline:auto; padding:28px 18px 42px}
     header{display:flex; align-items:center; gap:14px; margin-bottom:10px}
-    .logo{width:44px; height:44px; border-radius:10px; background:#111; color:#fff; display:grid; place-items:center; font-weight:700; letter-spacing:.2px}
+    .logo{width:44px; height:44px; border-radius:10px; background:#111; color:#fff; display:grid; place-items:center; font-weight:700}
     .logo::after{content:"E"; font-size:19px}
     h1{font:600 clamp(22px,2.6vw,30px)/1.25 Inter,system-ui,Segoe UI,Roboto,Arial}
     .lede{color:var(--sub); margin:6px 0 2px}
     .meta{display:flex; gap:12px; flex-wrap:wrap; color:#3d4a53; font-size:13px; border-top:1px solid var(--line); padding-top:10px; margin-top:10px}
-    .meta strong{color:#22313a}
     section{padding:18px 0; border-top:1px solid var(--line)}
     section:first-of-type{border-top:none}
     h2{font:600 18px/1.35 Inter,system-ui,Segoe UI,Roboto,Arial; margin:0 0 10px}
@@ -44,14 +43,32 @@
     .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
     .btn{appearance:none; border:1px solid var(--line); background:#fff; color:#0f2f2a; padding:10px 14px; border-radius:10px; font-weight:600; text-decoration:none}
     .btn.primary{background:var(--brand); border-color:var(--brand); color:#fff}
-    .grid{display:grid; gap:18px}
-    @media(min-width:900px){ .grid{grid-template-columns: 2fr 1fr} }
     footer{margin-top:24px; padding-top:12px; border-top:1px solid var(--line); color:#5a6975; font-size:13px}
     footer a{color:inherit; text-decoration:underline}
-    .hidden{display:none}
-  </style>
 
-  <!-- JS en fin de body ; cette page s'affiche même sans JS -->
+    /* Compactage tarifs & prime */
+    .fold { border:1px solid var(--line); border-radius:10px; background:#fff; }
+    .fold > summary {
+      list-style:none; cursor:pointer; padding:10px 12px; font-weight:600;
+      border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px;
+    }
+    .fold > summary::-webkit-details-marker { display:none; }
+    .fold > summary::before { content:"▸"; transform:rotate(0deg); transition:.2s; }
+    .fold[open] > summary::before { transform:rotate(90deg); }
+
+    .compact-table caption{ padding:8px 10px; font-size:14px }
+    .compact-table th, .compact-table td { padding:8px 10px; font-size:14px }
+    .compact-table thead th { background:#f6f8f9 }
+
+    .synth { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 4px }
+    .synth .chip { background:#f8fafb; border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-weight:600; font-size:13px }
+
+    @media (max-width: 720px){
+      .compact-table th:nth-child(3), .compact-table td:nth-child(3){ display:none; }
+      .table-wrap{ border:none; background:transparent }
+      .fold{ border:1px solid var(--line); }
+    }
+  </style>
 </head>
 <body>
   <div class="wrap" role="document">
@@ -66,56 +83,66 @@
     <p class="meta">
       <span><strong>Dernière mise à jour :</strong> <time id="last-update"></time></span>
       <span><strong>Sources :</strong> CRE · Photovoltaïque.info</span>
-      <span><strong>Périmètre :</strong> France métropolitaine</span>
     </p>
 
-    <!-- Tarifs -->
+    <!-- Section Tarifs -->
     <section id="tarifs" aria-labelledby="h-tarifs">
-      <h2 id="h-tarifs">Tarifs EDF OA (publication CRE, actualisation trimestrielle)</h2>
-      <p class="sources">Références : <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/" target="_blank" rel="noopener">Photovoltaïque.info (INES‑CEA)</a>, arrêtés au JO, <a href="https://www.cre.fr/" target="_blank" rel="noopener">CRE</a>.</p>
+      <h2 id="h-tarifs">Tarifs EDF OA (CRE – actualisation trimestrielle)</h2>
+      <p class="sources">Références : 
+        <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/" target="_blank" rel="noopener">Photovoltaïque.info</a>, JO, 
+        <a href="https://www.cre.fr/" target="_blank" rel="noopener">CRE</a>.
+      </p>
 
-      <div class="table-wrap">
-        <table>
-          <caption id="tarifs-caption">Rachat du surplus — EDF OA</caption>
-          <thead><tr><th>Puissance</th><th>Tarif (€/kWh)</th><th>Exemple</th></tr></thead>
-          <tbody id="tarifs-table-body">
-            <tr class="fallback-row"><td colspan="3">Les données se chargent. Si rien ne s’affiche, vérifiez <code>assets/tarifs.js</code> et <code>data/tarifs.json</code>.</td></tr>
-          </tbody>
-        </table>
+      <div class="synth">
+        <span class="chip">≤ 9 kWc : <strong id="syn-9">…</strong> €/kWh</span>
+        <span class="chip">9–36 kWc : <strong id="syn-36">…</strong> €/kWh</span>
+        <span class="chip">36–100 kWc : <strong id="syn-100">…</strong> €/kWh</span>
       </div>
       <p id="tarifs-meta" class="badge">Données à jour</p>
 
-      <div class="grid">
-        <div>
-          <h3 style="margin:14px 0 6px; font:600 15px/1.35 Inter">Repères</h3>
-          <ul class="clean">
-            <li id="kpi-autoconso-value">Valeur autoconsommation : ~0,25 €/kWh TTC</li>
-            <li>Les niveaux varient selon la tranche de puissance et la période CRE.</li>
-          </ul>
+      <details class="fold">
+        <summary>Voir le détail des barèmes</summary>
+        <div class="table-wrap">
+          <table class="compact-table">
+            <caption id="tarifs-caption">Rachat du surplus — EDF OA</caption>
+            <thead>
+              <tr><th>Puissance</th><th>Tarif (€/kWh)</th><th>Exemple</th></tr>
+            </thead>
+            <tbody id="tarifs-table-body">
+              <tr class="fallback-row"><td colspan="3">Chargement…</td></tr>
+            </tbody>
+          </table>
         </div>
-        <aside>
-          <div class="badge hidden" id="js-badge">Affichage dynamique actif</div>
-        </aside>
-      </div>
+      </details>
     </section>
 
-    <!-- Prime -->
+    <!-- Section Prime -->
     <section id="prime" aria-labelledby="h-prime">
       <h2 id="h-prime">Prime à l’autoconsommation (≤ 100 kWc)</h2>
       <p class="sub">Aide à l’investissement versée en 5 annuités via EDF OA. Montants fixés par la CRE, révisés trimestriellement.</p>
 
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Puissance de l’installation</th><th>Prime (€/kWc)</th></tr></thead>
-          <tbody id="prime-table-body">
-            <tr class="fallback-row"><td colspan="2">Les données se chargent. Si rien ne s’affiche, vérifiez <code>data/primes.json</code>.</td></tr>
-          </tbody>
-        </table>
+      <div class="synth">
+        <span class="chip">≤ 3 kWc : <strong id="syn-p3">…</strong> €/kWc</span>
+        <span class="chip">3–9 kWc : <strong id="syn-p9">…</strong> €/kWc</span>
+        <span class="chip">9–36 kWc : <strong id="syn-p36">…</strong> €/kWc</span>
+        <span class="chip">36–100 kWc : <strong id="syn-p100">…</strong> €/kWc</span>
       </div>
       <p id="prime-meta" class="badge">Données à jour</p>
+
+      <details class="fold">
+        <summary>Voir le détail du barème de prime</summary>
+        <div class="table-wrap">
+          <table class="compact-table">
+            <thead><tr><th>Puissance de l’installation</th><th>Prime (€/kWc)</th></tr></thead>
+            <tbody id="prime-table-body">
+              <tr class="fallback-row"><td colspan="2">Chargement…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
     </section>
 
-    <!-- Solutions -->
+    <!-- Section Solutions -->
     <section id="solutions" aria-labelledby="h-sol">
       <h2 id="h-sol">Solutions d’optimisation — stockage virtuel & pilotage</h2>
       <p class="sub">Élever le taux d’autoconsommation sans batterie physique, lisser la facture sur l’année, piloter les usages.</p>
@@ -133,7 +160,7 @@
     <!-- Contact -->
     <section id="contact" aria-labelledby="h-contact">
       <h2 id="h-contact">Contact</h2>
-      <p class="sub">Echome Énergies — 1159 rue de la Galandrine, 38210 Saint‑Quentin‑sur‑Isère</p>
+      <p class="sub">Echome Énergies — 1159 rue de la Galandrine, 38210 Saint-Quentin-sur-Isère</p>
       <div class="cta">
         <a class="btn primary" href="tel:+33476373462">Appeler le 04 76 37 34 62</a>
         <a class="btn" href="mailto:contact@echome-energies.fr">contact@echome-energies.fr</a>
@@ -146,19 +173,43 @@
     </footer>
   </div>
 
+  <!-- Scripts -->
+  <script defer src="assets/tarifs.js"></script>
   <script>
-    // Sécurité : tout JS est optionnel. La page s'affiche même si ce script échoue.
+    // Remplissage des dates
+    const now = new Date();
+    document.getElementById('year').textContent = now.getFullYear();
+    document.getElementById('last-update').textContent = now.toLocaleDateString('fr-FR');
+
+    // Auto-remplissage des chips après chargement des tableaux
     (function(){
-      try{
-        document.getElementById('year').textContent = new Date().getFullYear();
-        document.getElementById('last-update').textContent = new Date().toLocaleDateString('fr-FR');
-        const jsBadge = document.getElementById('js-badge');
-        if(jsBadge) jsBadge.classList.remove('hidden');
-      }catch(e){ /* ne rien faire */ }
+      function onceFilled(selector, cb){
+        const el = document.querySelector(selector);
+        if(!el) return;
+        const check = ()=> { if(el.querySelector('tr') && !el.querySelector('.fallback-row')) { cb(); obs.disconnect(); } };
+        const obs = new MutationObserver(check); obs.observe(el,{childList:true,subtree:true}); check();
+      }
+      // Tarifs
+      onceFilled('#tarifs-table-body', function(){
+        const rows = Array.from(document.querySelectorAll('#tarifs-table-body tr'));
+        function getVal(label){ const r = rows.find(tr=>tr.firstElementChild?.textContent.trim().startsWith(label)); return r?.children?.[1]?.textContent.trim()||null; }
+        if(getVal('≤ 9')) document.getElementById('syn-9').textContent = getVal('≤ 9');
+        if(getVal('9–36')) document.getElementById('syn-36').textContent = getVal('9–36');
+        if(getVal('36–100')) document.getElementById('syn-100').textContent = getVal('36–100');
+      });
+      // Primes
+      onceFilled('#prime-table-body', function(){
+        const rows = Array.from(document.querySelectorAll('#prime-table-body tr'));
+        rows.forEach(tr=>{
+          const label = tr.children?.[0]?.textContent.trim();
+          const val = tr.children?.[1]?.textContent.trim();
+          if(label?.startsWith('≤ 3')) document.getElementById('syn-p3').textContent = val;
+          if(label?.startsWith('3–9')) document.getElementById('syn-p9').textContent = val;
+          if(label?.startsWith('9–36')) document.getElementById('syn-p36').textContent = val;
+          if(label?.startsWith('36–100')) document.getElementById('syn-p100').textContent = val;
+        });
+      });
     })();
   </script>
-
-  <!-- Si votre dépôt contient /assets/tarifs.js, il complétera automatiquement les tableaux ci-dessus -->
-  <script defer src="assets/tarifs.js"></script>
 </body>
 </html>
