@@ -11,17 +11,10 @@
   <meta property="og:title" content="Newsletter Echome Energies — Photovoltaïque">
   <meta property="og:description" content="Tarifs/primes mis à jour automatiquement, focus innovation et conseils pratiques. Demandez un diagnostic gratuit.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://jomaia7338.github.io/echome-newsletter/">
+  <meta property="og:url" content="https://jomaia7338.github.io/echome-energies.fr-News/">
   <meta property="og:site_name" content="Echome Energies">
-  <meta property="og:image" content="https://jomaia7338.github.io/echome-newsletter/og-image.jpg">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Newsletter Echome Energies — Photovoltaïque">
-  <meta name="twitter:description" content="Tarifs EDF OA & primes (MAJ auto), innovations, conseils pratiques.">
-  <meta name="twitter:image" content="https://jomaia7338.github.io/echome-newsletter/og-image.jpg">
-
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="favicon.ico">
 
   <!-- Polices -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,11 +38,14 @@
     a:hover{text-decoration:underline}
     .wrap{max-width:980px; margin-inline:auto; padding:28px 20px}
     header{display:flex; align-items:center; gap:16px; margin-bottom:22px}
+    /* LOGO SOMBRE : fond noir, mono blanc */
     .logo{
-      width:44px;height:44px; border-radius:12px; background:linear-gradient(135deg,var(--brand),#7ee3d5);
-      display:grid; place-items:center; color:#fff; font-weight:700; font-family:Montserrat, sans-serif;
-      box-shadow: 0 6px 18px rgba(55,195,175,.25);
+      width:48px;height:48px; border-radius:12px; display:grid; place-items:center; 
+      font-weight:700; font-family:Montserrat, sans-serif;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
     }
+    .logo--dark{ background:#1C1C1C; color:#FFFFFF; }
+    .logo--dark::after{ content:"E"; font-size:22px; letter-spacing:0.5px; }
     h1,h2,h3{font-family:Montserrat, sans-serif; line-height:1.25; margin:0 0 12px}
     h1{font-size:clamp(26px,3.2vw,36px)}
     h2{font-size:clamp(20px,2.4vw,26px); margin-top:28px}
@@ -77,39 +73,45 @@
     .btn:hover{background:var(--brand-dark); transform:translateY(-1px); text-decoration:none}
     .cta-stack{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
     .cta-stack a.secondary{background:#fff; color:var(--focus); border:1px solid var(--border)}
-    .data-meta{font-size:14px; color:var(--muted)}
-    footer{margin-top:34px; padding-top:14px; border-top:1px solid var(--border); font-size:14px; color:var(--muted)}
+    .data-meta{font-size:14px; color:#4b5563}
+    address{font-style:normal; line-height:1.5}
+    footer{margin-top:34px; padding-top:14px; border-top:1px solid var(--border); font-size:14px; color:#4b5563}
     footer a{color:inherit; text-decoration:underline}
     @media print{ .btn,.cta-stack a,.toc{display:none !important} body{font-size:12pt} .wrap{padding:0} header{margin-bottom:8pt} .card{box-shadow:none} a{color:inherit; text-decoration:none} }
     :focus-visible{outline:3px solid var(--focus); outline-offset:2px}
   </style>
 
-  <!-- JSON-LD Article -->
+  <!-- JSON-LD Organization -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Newsletter Echome Energies — Photovoltaïque",
-    "about":"Tarifs EDF OA & primes, autoconsommation, MySmartBattery",
-    "datePublished":"2025-09-10",
-    "dateModified":"2025-09-13",
-    "author":{"@type":"Organization","name":"Echome Energies"},
-    "publisher":{"@type":"Organization","name":"Echome Energies"},
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://jomaia7338.github.io/echome-newsletter/"}
+    "@type":"Organization",
+    "name":"Echome Energies",
+    "url":"https://www.echome-energies.fr/",
+    "telephone":"+33476373462",
+    "email":"contact@echome-energies.fr",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"1159 rue de la Galandrine",
+      "postalCode":"38210",
+      "addressLocality":"Saint-Quentin-sur-Isère",
+      "addressCountry":"FR"
+    }
   }
   </script>
 
-  <!-- Branché sur l'automation kit -->
-<script defer src="assets/tarifs.js"></script>
+  <!-- JS du tableau dynamique -->
+  <script defer src="assets/tarifs.js"></script>
 </head>
 <body>
   <div class="wrap" role="document">
     <header>
-      <div class="logo" aria-hidden="true">E</div>
+      <!-- Logo sombre -->
+      <div class="logo logo--dark" aria-label="Echome Energies, logo sombre"></div>
       <div>
         <h1>Newsletter Echome Energies — Photovoltaïque</h1>
         <p class="sub">Isère &amp; Auvergne-Rhône-Alpes · <span class="badge">Édition en cours</span></p>
-        <p class="data-meta" id="meta-dates">
+        <p class="data-meta">
           Générée automatiquement · Dernière vérification manuelle le <time id="checked-date"></time>
         </p>
       </div>
@@ -129,8 +131,10 @@
         <!-- Section Tarifs -->
         <section id="tarifs" aria-labelledby="tarifs-title" class="card">
           <h2 id="tarifs-title">1) Tarifs EDF OA &amp; primes (MAJ automatique)</h2>
-          <p class="muted">Sources officielles : <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/tarifs-dachat/arrete-tarifaire-en-vigueur/conditions-dapplication/" rel="noopener">Arrêté tarifaire &amp; conditions</a> ·
-            <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/autoconsommation/autoconsommation-individuelle/definition-et-perimetre-de-lautoconsommation-individuelle/" rel="noopener">Autoconsommation</a></p>
+          <p class="muted">Sources officielles : 
+            <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/tarifs-dachat/arrete-tarifaire-en-vigueur/conditions-dapplication/" rel="noopener">Arrêté tarifaire &amp; conditions</a> ·
+            <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/autoconsommation/autoconsommation-individuelle/definition-et-perimetre-de-lautoconsommation-individuelle/" rel="noopener">Autoconsommation</a>
+          </p>
 
           <div class="table-wrap" role="region" aria-label="Tableau des tarifs" tabindex="0">
             <table>
@@ -147,7 +151,9 @@
               </tbody>
             </table>
           </div>
-          <p class="data-meta" id="tarifs-meta">Données mises à jour automatiquement — en cours…</p>
+
+          <!-- Badge visuel de mise à jour -->
+          <p id="tarifs-meta" class="badge">✅ Données mises à jour automatiquement — en cours…</p>
 
           <div class="kpi" aria-label="Chiffres clés">
             <div class="chip" id="kpi-autoconso-value">💡 Un kWh autoconsommé vaut ~0,25 €/kWh TTC</div>
@@ -194,14 +200,21 @@
         </section>
       </main>
 
-      <!-- Aside contact -->
+      <!-- Aside contact (coordonnées Echome Energies) -->
       <aside id="contact" class="card" aria-labelledby="contact-title">
         <h2 id="contact-title">5) Passez à l’action</h2>
-        <p>Parlez à un expert Echome Energies (Isère · AuRA) :</p>
-        <div class="cta-stack" style="margin:10px 0 14px">
-          <a class="btn" href="tel:+33400000000" aria-label="Appeler Echome Energies">☎️ 04&nbsp;00&nbsp;00&nbsp;00&nbsp;00</a>
-          <a class="btn secondary" href="mailto:contact@echome-energies.fr">✉️ contact@echome-energies.fr</a>
-          <a class="btn" href="https://form.typeform.com/to/XXXX" rel="noopener">Demande de rappel</a>
+        <address>
+          <strong>Echome Energies</strong><br>
+          1159 rue de la Galandrine<br>
+          38210 Saint-Quentin-sur-Isère<br>
+          📞 <a href="tel:+33476373462">04&nbsp;76&nbsp;37&nbsp;34&nbsp;62</a><br>
+          ✉️ <a href="mailto:contact@echome-energies.fr">contact@echome-energies.fr</a><br>
+          🌐 <a href="https://www.echome-energies.fr/" rel="noopener">www.echome-energies.fr</a>
+        </address>
+
+        <div class="cta-stack" style="margin:12px 0 14px">
+          <a class="btn" href="tel:+33476373462" aria-label="Appeler Echome Energies">☎️ Appeler maintenant</a>
+          <a class="btn secondary" href="mailto:contact@echome-energies.fr">✉️ Envoyer un email</a>
         </div>
 
         <h3 style="margin-top:8px">Documents utiles</h3>
@@ -218,8 +231,8 @@
     <footer role="contentinfo">
       <p>© <span id="year">2025</span> Echome Energies — Tous droits réservés.</p>
       <p>
-        <a href="/mentions-legales.html">Mentions légales</a> ·
-        <a href="/confidentialite.html">Politique de confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a> ·
+        <a href="confidentialite.html">Politique de confidentialité</a>
       </p>
     </footer>
   </div>
