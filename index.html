@@ -4,19 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Newsletter Echome Energies – Tarifs EDF OA (CRE – actualisation trimestrielle)</title>
-  <meta name="description" content="Tarifs officiels de rachat EDF OA (source CRE, actualisation trimestrielle) avec affichage automatique à jour.">
+  <meta name="description" content="Tarifs officiels de rachat EDF OA (source CRE, actualisation trimestrielle), primes autoconsommation et explication rapide pour les néophytes.">
   <link rel="icon" href="favicon.ico">
   <style>
-    :root{--brand:#37C3AF;--brand-dark:#2aa08f;--ink:#1C1C1C;--muted:#5f6b72;--bg:#ffffff;--card:#f6fbfa;--border:#e6f3f1;--focus:#0f766e;}
-    body{margin:0;padding:0;font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px}
+    :root{--brand:#37C3AF;--ink:#1C1C1C;--muted:#5f6b72;--bg:#ffffff;--card:#f6fbfa;--border:#e6f3f1;}
+    body{margin:0;padding:0;font-family:"Open Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px}
     .wrap{max-width:980px;margin:auto;padding:28px 20px}
     header{display:flex;align-items:center;gap:16px;margin-bottom:22px}
     .logo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-weight:700;font-family:Montserrat,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.15)}
     .logo--dark{background:#1C1C1C;color:#fff}.logo--dark::after{content:"E";font-size:22px}
-    h1,h2{font-family:Montserrat,sans-serif;margin:0 0 12px}
+    h1,h2,h3{font-family:Montserrat,sans-serif;margin:0 0 12px}
     .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:#0b5e55;font-weight:600;font-size:13px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 8px 20px rgba(15,118,110,.06)}
-    .muted{color:var(--muted)}.note{border-left:4px solid var(--brand);padding:12px;background:#fff;border-radius:8px;border:1px solid var(--border)}
+    .muted{color:var(--muted)}
+    .note{border-left:4px solid var(--brand);padding:12px;background:#fff;border-radius:8px;border:1px solid var(--border)}
     .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);background:#fff}
     table{border-collapse:separate;width:100%}caption{caption-side:top;text-align:left;padding:12px;font-weight:600;background:var(--card)}
     th,td{padding:12px;text-align:left}thead th{background:#f0fcfa;border-bottom:1px solid var(--border)}
@@ -35,7 +36,7 @@
       </div>
     </header>
 
-    <!-- Section Tarifs (titre centré sur tarifs uniquement) -->
+    <!-- Section Tarifs -->
     <section id="tarifs" class="card">
       <h2>1) Tarifs EDF OA (CRE – actualisation trimestrielle)</h2>
       <p class="muted">
@@ -58,9 +59,37 @@
         <div class="chip" id="kpi-autoconso-value">💡 Un kWh autoconsommé vaut ~0,25 €/kWh TTC</div>
         <div class="chip">↗️ 3 à 6× plus intéressant que la revente</div>
       </div>
+
+      <!-- Bloc explicatif court -->
+      <p class="note muted">
+        💡 <strong>En bref</strong> : Le <em>tarif EDF OA</em> est le prix auquel EDF rachète votre surplus d’électricité solaire 
+        (chiffres officiels CRE, révisés chaque trimestre).<br>
+        La <em>prime à l’autoconsommation</em> est une aide versée pendant 5 ans pour encourager à consommer sa propre énergie.
+      </p>
     </section>
 
-    <!-- Les autres sections restent identiques ; ajoute-les ici si besoin -->
+    <!-- Section Prime à l’autoconsommation -->
+    <section id="prime" class="card">
+      <h3>Prime à l’autoconsommation (CRE – actualisation trimestrielle)</h3>
+      <p class="muted">Montants indicatifs pour les installations ≤ 100 kWc. Prime versée en 5 fractions annuelles par EDF OA.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Puissance de l’installation</th><th>Prime (€/kWc)</th></tr></thead>
+          <tbody>
+            <tr><td>≤ 3 kWc</td><td>330</td></tr>
+            <tr><td>3–9 kWc</td><td>250</td></tr>
+            <tr><td>9–36 kWc</td><td>200</td></tr>
+            <tr><td>36–100 kWc</td><td>100</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">
+        Sources : 
+        <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/dispositifs-de-soutien-public/aides-au-photovoltaique/aides-au-photovoltaique/" target="_blank">
+          Photovoltaïque.info (INES/CEA)
+        </a> · CRE
+      </p>
+    </section>
 
     <footer>
       <p>© 2025 Echome Energies — Tous droits réservés.</p>
