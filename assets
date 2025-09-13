@@ -1,0 +1,42 @@
+// assets/tarifs.js
+// Dynamically load tariffs from /data/tarifs.json and render into a table.
+// Usage in HTML: <script defer src="/assets/tarifs.js"></script>
+
+(function(){
+  async function loadTarifs() {
+    try{
+      const res = await fetch('/data/tarifs.json', {cache: 'no-store'});
+      const data = await res.json();
+      const target = document.querySelector('#tarifs-table-body');
+      const caption = document.querySelector('#tarifs-caption');
+      const meta = document.querySelector('#tarifs-meta');
+      if(!target) return;
+
+      target.innerHTML = '';
+      for (const row of data.edf_oa_surplus){
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <th scope="row">${row.range} (${row.segment})</th>
+          <td><strong>${row.eur_per_kwh.toFixed(4).replace('.', ',')}</strong></td>
+          <td>Surplus ${row.example_surplus_kwh.toLocaleString('fr-FR')} kWh → <strong>${(row.example_surplus_kwh * row.eur_per_kwh).toLocaleString('fr-FR', {style:'currency', currency:'EUR'})}</strong>/an</td>
+        `;
+        target.appendChild(tr);
+      }
+      if(caption){
+        caption.textContent = `Tarifs de rachat (EDF OA) — Surplus (${data.version})`;
+      }
+      if(meta){
+        meta.textContent = `Données mises à jour automatiquement — ${new Date(data.last_updated).toLocaleDateString('fr-FR')}`;
+      }
+
+      // KPI autoconsommation value
+      const kpi = document.querySelector('#kpi-autoconso-value');
+      if(kpi){
+        kpi.innerHTML = `💡 Un kWh autoconsommé vaut ~<strong>${data.avg_autoconsommation_value_ttc_eur_per_kwh.toFixed(2).replace('.', ',')} €/kWh TTC</strong>`;
+      }
+    }catch(e){
+      console.error('Erreur chargement tarifs:', e);
+    }
+  }
+  document.addEventListener('DOMContentLoaded', loadTarifs);
+})();
