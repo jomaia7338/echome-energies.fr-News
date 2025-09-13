@@ -1,0 +1,30 @@
+{
+  "version": "T3-2025",
+  "source": "https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/",
+  "last_updated": "2025-09-13",
+  "edf_oa_surplus": [
+    {
+      "range": "≤ 9 kWc",
+      "segment": "particuliers",
+      "eur_per_kwh": 0.04,
+      "example_surplus_kwh": 1000
+    },
+    {
+      "range": "9–36 kWc",
+      "segment": "petites pros",
+      "eur_per_kwh": 0.04,
+      "example_surplus_kwh": 5000
+    },
+    {
+      "range": "36–100 kWc",
+      "segment": "PME/PMI",
+      "eur_per_kwh": 0.0886,
+      "example_surplus_kwh": 20000
+    }
+  ],
+  "notes": [
+    "Valeurs indicatives susceptibles d'évoluer à chaque trimestre (CRE).",
+    "Vérifier les conditions d'éligibilité et l'arrêté tarifaire en vigueur."
+  ],
+  "avg_autoconsommation_value_ttc_eur_per_kwh": 0.25
+}
