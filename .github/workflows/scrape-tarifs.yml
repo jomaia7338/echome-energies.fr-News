@@ -2,7 +2,7 @@ name: Mise à jour des données PV (tarifs + primes)
 
 on:
   schedule:
-    - cron: "0 6 * * 1"   # Lundi 06:00 UTC
+    - cron: "0 6 * * 1"   # Lundi 06:00 UTC (08:00 CEST / 07:00 CET)
   workflow_dispatch:
 
 concurrency:
