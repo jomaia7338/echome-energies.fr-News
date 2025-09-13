@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Newsletter — Echome Énergies (Modèle)</title>
-  <meta name="description" content="Modèle de newsletter Echome Énergies : Tarifs EDF OA, Prime à l’autoconsommation, Innovation, Cas client, Conseil, Contact." />
+  <title>Newsletter — Echome Énergies (Modèle orienté résultats)</title>
+  <meta name="description" content="Modèle de newsletter Echome Énergies : informer, éduquer, convertir. Tarifs EDF OA & Prime (auto), cas concret, bénéfices, CTA." />
 
   <style>
     :root{
-      --ink:#111418; --sub:#5a6975; --line:#e7ecef; --bg:#ffffff; --card:#f8fafb;
-      --brand:#2aa08f;
+      --ink:#121417; --sub:#5a6975; --line:#e7ecef; --bg:#ffffff; --muted:#f7f9fb;
+      --brand:#2aa08f; --brand-700:#1d7c6d;
     }
     *{box-sizing:border-box}
     html:focus-within{scroll-behavior:smooth}
@@ -17,38 +17,52 @@
       font:15.5px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,"Noto Sans",sans-serif;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
     .wrap{max-width:1100px; margin:auto; padding:28px 18px 42px}
+    a{color:var(--brand-700); text-decoration:none} a:hover{text-decoration:underline}
 
-    /* Header */
-    header{display:flex; align-items:center; gap:14px; margin-bottom:16px}
+    /* Header (value prop + KPI) */
+    header{display:flex; align-items:flex-start; gap:14px; margin-bottom:10px}
     .logo{width:44px; height:44px; border-radius:10px; background:#111; color:#fff; display:grid; place-items:center; font-weight:700}
     .logo::after{content:"E"; font-size:19px}
-    h1{margin:0; font:600 clamp(22px,2.6vw,30px)/1.25 Inter,system-ui,Segoe UI,Roboto,Arial}
+    h1{margin:0; font:700 clamp(22px,2.6vw,30px)/1.25 Inter,system-ui,Segoe UI,Roboto,Arial}
+    .lede{color:var(--sub); margin:6px 0 2px}
     .meta{font-size:13px; color:#5a6975; margin-top:4px}
+    .kpis{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+    .pill{background:#fff; border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-weight:600; font-size:13px}
 
     /* Sections */
     section{padding:22px 0; border-top:1px solid var(--line)}
     section:first-of-type{border-top:none}
-    h2{margin:0 0 10px; font:600 18px/1.3 Inter,system-ui,Segoe UI,Roboto,Arial}
-    .sub{color:#5a6975; margin:0 0 12px}
+    h2{margin:0 0 10px; font:700 18px/1.3 Inter,system-ui,Segoe UI,Roboto,Arial}
+    h3{margin:0 0 8px; font:600 16px/1.35 Inter}
 
-    /* Two-column block for Tarifs & Prime */
-    .cols{display:grid; gap:22px}
+    /* Results-first band */
+    .results{background:var(--muted); border:1px solid var(--line); border-radius:10px; padding:12px; display:grid; gap:6px}
+    .results .row{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{background:#ffffff; border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-weight:600; font-size:13px}
+
+    /* Two-column: Tarifs & Prime */
+    .cols{display:grid; gap:18px}
     @media (min-width: 860px){ .cols{grid-template-columns:1fr 1fr} }
     .card{background:#fff; border:1px solid var(--line); border-radius:10px}
     .card header{display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; border-bottom:1px solid var(--line); margin:0}
-    .card h3{margin:0; font:600 16px/1.3 Inter}
     .badge{display:inline-block; padding:4px 8px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:#2a3c41; background:#f8fafb}
     .table-wrap{padding:10px; overflow-x:auto}
     table{width:100%; border-collapse:collapse; font-size:14px}
     th,td{border:1px solid #e5eaee; padding:8px; text-align:left}
     th{background:#f5f7f8}
 
-    /* Thematic blocks */
+    /* Storytelling blocks */
+    .grid-2{display:grid; gap:18px}
+    @media (min-width: 860px){ .grid-2{grid-template-columns:1fr 1fr} }
+    .note{border-left:4px solid var(--brand); background:#fff; border:1px solid var(--line); border-left-color:var(--brand); padding:12px; border-radius:8px}
     ul.clean{margin:0; padding-left:18px}
     ul.clean li{margin:4px 0}
-    .cta{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
-    .btn{border:1px solid var(--line); background:#fff; color:#111; padding:8px 14px; border-radius:8px; font-weight:600; text-decoration:none}
+
+    /* CTA bar */
+    .cta{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+    .btn{border:1px solid var(--line); background:#fff; color:#111; padding:10px 16px; border-radius:10px; font-weight:700; text-decoration:none}
     .btn.primary{background:var(--brand); border-color:var(--brand); color:#fff}
+    .btn.secondary{background:#fff}
 
     footer{margin-top:28px; padding-top:12px; border-top:1px solid var(--line); font-size:13px; color:#5a6975}
   </style>
@@ -56,21 +70,40 @@
 <body>
 <div class="wrap">
 
-  <!-- En-tête -->
+  <!-- HERO -->
   <header>
     <div class="logo" aria-hidden="true"></div>
     <div>
       <h1>Newsletter — Echome Énergies</h1>
+      <p class="lede">Le point utile du trimestre : chiffres officiels, lecture rapide, conseils actionnables.</p>
       <p class="meta">Édition <time id="edition-date"></time> · Sources : CRE & Photovoltaïque.info</p>
+      <div class="kpis">
+        <span class="pill">Lecture 90 s</span>
+        <span class="pill">Région : AuRA</span>
+        <span class="pill">Cibles : Particuliers & Pros</span>
+      </div>
     </div>
   </header>
 
-  <!-- Section Tarifs & Prime côte à côte -->
+  <!-- BANDEAU ORIENTÉ RÉSULTATS -->
+  <section aria-labelledby="h-resultats">
+    <h2 id="h-resultats">Ce que vous gagnez ce trimestre</h2>
+    <div class="results">
+      <div class="row">
+        <span class="chip" id="chip-best-tarif">Tarif surplus ≤ 9 kWc : … €/kWh</span>
+        <span class="chip" id="chip-best-prime">Prime ≤ 3 kWc : … €/kWc</span>
+        <span class="chip">Autoconsommation moyenne : ~0,25 €/kWh TTC</span>
+      </div>
+      <p class="note">Lecture directe des **opportunités** pour dimensionner votre projet. Les tableaux ci-dessous donnent le détail par tranche de puissance.</p>
+    </div>
+  </section>
+
+  <!-- TARIFS & PRIME CÔTE À CÔTÉ -->
   <section aria-labelledby="h-tarifprime">
     <h2 id="h-tarifprime">Tarifs & Prime (actualisation CRE trimestrielle)</h2>
     <div class="cols">
 
-      <!-- Bloc Tarifs -->
+      <!-- Tarifs -->
       <article class="card" aria-labelledby="h-tarifs">
         <header>
           <h3 id="h-tarifs">Tarifs EDF OA</h3>
@@ -86,7 +119,7 @@
         </div>
       </article>
 
-      <!-- Bloc Prime -->
+      <!-- Prime -->
       <article class="card" aria-labelledby="h-prime">
         <header>
           <h3 id="h-prime">Prime à l’autoconsommation (≤ 100 kWc)</h3>
@@ -105,51 +138,50 @@
     </div>
   </section>
 
-  <!-- Thématique : Innovation & Solutions -->
-  <section id="innovation">
-    <h2>Innovation & Solutions</h2>
-    <p class="sub">[TODO] Phrase d’ouverture (1–2 lignes) présentant l’innovation mise en avant.</p>
-    <ul class="clean">
-      <li>[TODO] Point 1 — Fonction / bénéfice concret.</li>
-      <li>[TODO] Point 2 — Intégration (IRVE, PAC, ECS…).</li>
-      <li>[TODO] Point 3 — Preuve / métrique / retour d’expérience.</li>
-    </ul>
-    <div class="cta">
-      <a class="btn primary" href="#contact">Demander un diagnostic</a>
-      <a class="btn" href="#" target="_blank" rel="noopener">Documentation</a>
+  <!-- ÉDUQUER : EXPLICATION COURTE + OBJECTIONS -->
+  <section aria-labelledby="h-edu">
+    <h2 id="h-edu">Comprendre en 30 secondes</h2>
+    <div class="grid-2">
+      <div class="note">
+        <h3>Tarifs vs autoconsommation</h3>
+        <p>Le tarif EDF OA est le prix auquel votre surplus est racheté. La valeur d’un kWh <strong>autoconsommé</strong> reste généralement plus élevée que revendu : il remplace un kWh acheté au fournisseur.</p>
+      </div>
+      <div class="note">
+        <h3>Prime à l’autoconsommation</h3>
+        <p>Aide à l’investissement (≤ 100 kWc), versée sur 5 ans via EDF OA. Les montants dépendent de la puissance et évoluent par période CRE.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Thématique : Cas Client -->
-  <section id="cas-client">
-    <h2>Cas Client</h2>
-    <p class="sub">[TODO] Description courte du projet (site, puissance kWc, objectifs, résultats mesurés).</p>
+  <!-- CAS CONCRET -->
+  <section aria-labelledby="h-cas">
+    <h2 id="h-cas">Cas concret (exemple modifiable)</h2>
+    <p class="sub">[TODO] Remplacer par un projet réel Echome.</p>
     <ul class="clean">
-      <li>[TODO] Contexte & enjeux.</li>
-      <li>[TODO] Solution déployée.</li>
-      <li>[TODO] Résultats (kWh, autoconsommation, ROI estimé).</li>
+      <li>Site : [Maison individuelle / PME] · Puissance : [ex. 9 kWc / 36 kWc]</li>
+      <li>Production annuelle estimée : [x] kWh · Taux d’autoconsommation : [x] %</li>
+      <li>Économie annuelle : [x] € · Contribution CO₂ évitée : [x] t</li>
+      <li>Retour simple estimé : [x] ans (selon usages)</li>
     </ul>
   </section>
 
-  <!-- Thématique : Conseil -->
-  <section id="conseil">
-    <h2>Conseil d’expert</h2>
-    <ul class="clean">
-      <li>[TODO] Recommandation 1 — actionnable rapidement.</li>
-      <li>[TODO] Recommandation 2 — optimisation concrète.</li>
-      <li>[TODO] Recommandation 3 — suivi / maintenance.</li>
-    </ul>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p class="sub">Echome Énergies — 1159 rue de la Galandrine, 38210 Saint-Quentin-sur-Isère</p>
+  <!-- CONVERTIR : CTA CLAIRS -->
+  <section aria-labelledby="h-cta">
+    <h2 id="h-cta">Passer à l’action</h2>
     <div class="cta">
-      <a class="btn primary" href="tel:+33476373462">Appeler</a>
-      <a class="btn" href="mailto:contact@echome-energies.fr">Email</a>
-      <a class="btn" href="#">Formulaire</a>
+      <a class="btn primary" href="tel:+33476373462">Appeler un expert</a>
+      <a class="btn secondary" href="mailto:contact@echome-energies.fr">Demander une étude</a>
+      <a class="btn secondary" href="#">Formulaire de simulation</a>
     </div>
+  </section>
+
+  <!-- SOURCES / LÉGAL -->
+  <section aria-labelledby="h-legal">
+    <h2 id="h-legal">Sources & mentions</h2>
+    <ul class="clean">
+      <li>CRE (Commission de régulation de l’énergie) — arrêtés tarifaires</li>
+      <li>Photovoltaïque.info (INES/CEA) — synthèses officielles</li>
+    </ul>
   </section>
 
   <footer>© <span id="year"></span> Echome Énergies — Tous droits réservés.</footer>
@@ -158,9 +190,37 @@
 <!-- Auto-fill scripts -->
 <script defer src="assets/tarifs.js"></script>
 <script>
+  // Dates
   const now = new Date();
   document.getElementById('year').textContent = now.getFullYear();
   document.getElementById('edition-date').textContent = now.toLocaleDateString('fr-FR');
+
+  // Petites synthèses en tête ("Results band") à partir des tableaux une fois peuplés
+  (function(){
+    function onFilled(selector, cb){
+      const el = document.querySelector(selector); if(!el) return;
+      const check = ()=>{ if(el.querySelector('tr') && !el.querySelector('tr td[colspan]')){ cb(); obs.disconnect(); } };
+      const obs = new MutationObserver(check); obs.observe(el,{childList:true,subtree:true}); check();
+    }
+    // Tarifs: prendre la valeur de la 1re ligne (≤ 9 kWc)
+    onFilled('#tarifs-table-body', function(){
+      const first = document.querySelector('#tarifs-table-body tr');
+      if(first){
+        const label = first.children[0]?.textContent.trim() || '≤ 9 kWc';
+        const val = first.children[1]?.textContent.trim() || '…';
+        const chip = document.getElementById('chip-best-tarif');
+        if(chip) chip.textContent = `Tarif surplus ${label.split('(')[0].trim()} : ${val} €/kWh`;
+      }
+    });
+    // Primes: chercher la ligne "≤ 3 kWc"
+    onFilled('#prime-table-body', function(){
+      const rows = Array.from(document.querySelectorAll('#prime-table-body tr'));
+      const r = rows.find(tr => (tr.children[0]?.textContent || '').trim().startsWith('≤ 3'));
+      const val = r?.children[1]?.textContent.trim() || '…';
+      const chip = document.getElementById('chip-best-prime');
+      if(chip) chip.textContent = `Prime ≤ 3 kWc : ${val} €/kWc`;
+    });
+  })();
 </script>
 </body>
 </html>
