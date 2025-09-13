@@ -1,5 +1,5 @@
 {
-  "version": "T3-2025",
+  "version": "auto",
   "source": "https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/",
   "last_updated": "2025-09-13",
   "edf_oa_surplus": [
@@ -23,8 +23,8 @@
     }
   ],
   "notes": [
-    "Valeurs indicatives susceptibles d'évoluer à chaque trimestre (CRE).",
-    "Vérifier les conditions d'éligibilité et l'arrêté tarifaire en vigueur."
+    "Données extraites automatiquement de photovoltaique.info (heuristique).",
+    "Vérifier l'arrêté et les barèmes trimestriels (CRE) avant signature."
   ],
   "avg_autoconsommation_value_ttc_eur_per_kwh": 0.25
 }
