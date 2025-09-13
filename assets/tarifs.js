@@ -11,7 +11,7 @@
     }
   }
 
-  // Valeurs de secours si fetch échoue (évite "Chargement…" infini)
+  // Valeurs de secours si fetch échoue
   const FALLBACK = {
     version: "T3-2025",
     last_updated: new Date().toISOString().slice(0,10),
@@ -33,9 +33,9 @@
       data = await res.json();
     }catch(e){
       console.error('Chargement tarifs.json échoué → fallback', e);
-      data = FALLBACK; // on n’abandonne pas l’affichage
+      data = FALLBACK;
       const meta = document.querySelector('#tarifs-meta');
-      if(meta) meta.textContent = '⚠️ Données locales (fallback) — vérifiez /data/tarifs.json';
+      if(meta){ meta.textContent = '⚠️ Données locales (fallback) — vérifiez /data/tarifs.json'; }
     }
 
     const body = document.querySelector('#tarifs-table-body');
@@ -56,8 +56,14 @@
         </tr>
       `);
     }
-    if(caption) caption.textContent = `Tarifs de rachat (EDF OA) — Surplus (${data.version||'à jour'})`;
-    if(meta)    meta.textContent    = `Données mises à jour automatiquement — ${new Date(data.last_updated||Date.now()).toLocaleDateString('fr-FR')}`;
+
+    if(caption){
+      caption.textContent = `Tarifs de rachat (EDF OA) — Surplus (${data.version||'à jour'})`;
+    }
+    if(meta){
+      meta.textContent = `✅ Données à jour — ${new Date(data.last_updated||Date.now()).toLocaleDateString('fr-FR')}`;
+    }
+
     const kpi = document.querySelector('#kpi-autoconso-value');
     if(kpi && data.avg_autoconsommation_value_ttc_eur_per_kwh){
       kpi.innerHTML = `💡 Un kWh autoconsommé vaut ~<strong>${Number(data.avg_autoconsommation_value_ttc_eur_per_kwh).toFixed(2).replace('.', ',')} €/kWh TTC</strong>`;
