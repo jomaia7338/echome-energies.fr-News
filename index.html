@@ -3,210 +3,162 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Newsletter Echome Énergies — Photovoltaïque (édition en cours)</title>
-  <meta name="description" content="Tarifs EDF OA (CRE, actualisation trimestrielle), prime à l’autoconsommation, innovation MySmartBattery, ACC, conseils et contact Echome Énergies." />
-
-  <link rel="icon" href="favicon.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>Echome Énergies — Bulletin Photovoltaïque</title>
+  <meta name="description" content="Tarifs EDF OA (CRE), prime à l’autoconsommation, solutions et contact Echome Énergies." />
 
   <style>
     :root{
-      --brand:#37C3AF; --brand-600:#2aa08f; --ink:#1C1C1C; --muted:#5f6b72;
-      --bg:#ffffff; --card:#f6fbfa; --border:#e6f3f1; --focus:#0f766e;
+      --ink:#111418; --sub:#5a6975; --line:#e7ecef; --bg:#ffffff; --card:#f8fafb;
+      --brand:#2aa08f; --brand-ink:#0e3b36;
     }
     *{box-sizing:border-box}
     html:focus-within{scroll-behavior:smooth}
-    body{margin:0;padding:0;background:var(--bg);color:var(--ink);
-         font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-         line-height:1.65; font-size:17px;}
-    a{color:var(--focus); text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:980px; margin-inline:auto; padding:20px 18px 28px}
-    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:#fff; border:1px solid var(--border); font-weight:600; font-size:13px}
-    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--card); border:1px solid var(--border); color:#0b5e55; font-weight:600; font-size:13px}
-    .btn{display:inline-block; padding:12px 16px; border-radius:12px; background:var(--brand); color:#fff; font-weight:700; letter-spacing:.2px; box-shadow:0 8px 18px rgba(55,195,175,.35)}
-    .btn:hover{background:var(--brand-600); text-decoration:none}
-    .btn.secondary{background:#fff; color:var(--focus); border:1px solid var(--border); box-shadow:none}
-    h1,h2,h3{font-family:Montserrat, sans-serif; line-height:1.25; margin:0 0 12px}
-    h1{font-size:clamp(26px,3.2vw,36px)}
-    h2{font-size:clamp(20px,2.4vw,26px); margin-top:6px}
-    h3{font-size:clamp(18px,2vw,22px); margin-top:4px}
-    .muted{color:var(--muted)}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:0 8px 20px rgba(15,118,110,.06)}
-    .table-wrap{overflow-x:auto; border-radius:12px; border:1px solid var(--border); background:#fff; margin-top:8px}
-    table{border-collapse:separate; border-spacing:0; width:100%}
-    caption{caption-side:top; text-align:left; padding:12px; font-weight:600; background:var(--card); border-bottom:1px solid var(--border)}
-    th,td{padding:12px 14px; text-align:left}
-    thead th{background:#f0fcfa; border-bottom:1px solid var(--border)}
-    tbody tr:not(:last-child) td{border-bottom:1px dashed var(--border)}
-    tbody tr:nth-child(2n){background:#fcfefe}
-    .kpi{display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 6px}
-    .note{border-left:4px solid var(--brand); padding:12px; background:#fff; border-radius:8px; border:1px solid var(--border)}
-    header.hero{display:flex; flex-direction:column; gap:14px; margin:6px 0 10px}
-    .brand{display:flex; align-items:center; gap:14px}
-    .logo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-weight:700;font-family:Montserrat,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.15)}
-    .logo--dark{background:#1C1C1C;color:#fff}.logo--dark::after{content:"E";font-size:22px;letter-spacing:.5px}
-    .hero .kpis{display:flex; gap:8px; flex-wrap:wrap; margin:6px 0}
-    nav.toc{position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border); z-index:9; padding:8px 0; display:flex; gap:8px; flex-wrap:wrap}
-    nav.toc a{padding:8px 10px; border-radius:10px; background:#fff; border:1px solid var(--border); font-size:14px}
-    footer{margin-top:32px; padding-top:12px; border-top:1px solid var(--border); font-size:14px; color:#4b5563}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font: 15.5px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:960px; margin-inline:auto; padding:28px 18px 42px}
+    header{display:flex; align-items:center; gap:14px; margin-bottom:10px}
+    .logo{width:44px; height:44px; border-radius:10px; background:#111; color:#fff; display:grid; place-items:center; font-weight:700; letter-spacing:.2px}
+    .logo::after{content:"E"; font-size:19px}
+    h1{font:600 clamp(22px,2.6vw,30px)/1.25 Inter,system-ui,Segoe UI,Roboto,Arial}
+    .lede{color:var(--sub); margin:6px 0 2px}
+    .meta{display:flex; gap:12px; flex-wrap:wrap; color:#3d4a53; font-size:13px; border-top:1px solid var(--line); padding-top:10px; margin-top:10px}
+    .meta strong{color:#22313a}
+    section{padding:18px 0; border-top:1px solid var(--line)}
+    section:first-of-type{border-top:none}
+    h2{font:600 18px/1.35 Inter,system-ui,Segoe UI,Roboto,Arial; margin:0 0 10px}
+    .sub{color:var(--sub); margin:0 0 14px}
+    .table-wrap{border:1px solid var(--line); border-radius:10px; overflow-x:auto; background:#fff}
+    table{width:100%; border-collapse:separate; border-spacing:0}
+    caption{padding:10px 12px; text-align:left; font-weight:600; background:var(--card); border-bottom:1px solid var(--line)}
+    th,td{padding:10px 12px; text-align:left; vertical-align:top}
+    thead th{font-weight:600; font-size:14px; background:#f4f7f8; border-bottom:1px solid var(--line)}
+    tbody tr:not(:last-child) td{border-bottom:1px solid #f1f4f6}
+    .badge{display:inline-block; padding:4px 8px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:#2a3c41; background:#fff}
+    .sources{color:#50606b; font-size:13px; margin:6px 0 12px}
+    .sources a{color:inherit; text-decoration:underline}
+    ul.clean{margin:6px 0 0; padding-left:18px}
+    ul.clean li{margin:2px 0}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .btn{appearance:none; border:1px solid var(--line); background:#fff; color:#0f2f2a; padding:10px 14px; border-radius:10px; font-weight:600; text-decoration:none}
+    .btn.primary{background:var(--brand); border-color:var(--brand); color:#fff}
+    .grid{display:grid; gap:18px}
+    @media(min-width:900px){ .grid{grid-template-columns: 2fr 1fr} }
+    footer{margin-top:24px; padding-top:12px; border-top:1px solid var(--line); color:#5a6975; font-size:13px}
     footer a{color:inherit; text-decoration:underline}
-    /* CTA bar mobile */
-    .cta-bar{position:sticky; bottom:10px; display:flex; gap:8px; flex-wrap:wrap; background:transparent; margin-top:10px}
-    @media (min-width: 900px){ .grid{display:grid; grid-template-columns:2fr 1fr; gap:16px} }
-    @media print{ .btn,.toc,.cta-bar{display:none!important}; body{font-size:12pt}; .wrap{padding:0}; header.hero{margin-bottom:6pt}; .card{box-shadow:none}; a{text-decoration:none;color:inherit} }
+    .hidden{display:none}
   </style>
 
-  <script defer src="assets/tarifs.js"></script>
+  <!-- JS en fin de body ; cette page s'affiche même sans JS -->
 </head>
 <body>
   <div class="wrap" role="document">
-    <!-- HERO -->
-    <header class="hero" role="banner">
-      <div class="brand">
-        <div class="logo logo--dark" aria-label="Echome Énergies, logo sombre"></div>
-        <div>
-          <h1>Newsletter Echome Énergies — Photovoltaïque</h1>
-          <p class="muted">Générée automatiquement · Vérif. manuelle <time id="checked-date"></time></p>
-          <div class="kpis hero kpis">
-            <span class="pill" id="kpi-cre">MAJ CRE : à jour</span>
-            <span class="pill">Lecture : 1–2 min</span>
-            <span class="pill">Isère / AuRA</span>
-          </div>
-        </div>
+    <header role="banner">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Bulletin Photovoltaïque — Echome Énergies</h1>
+        <p class="lede">Tarifs officiels, prime à l’autoconsommation, solutions d’optimisation et contacts.</p>
       </div>
-
-      <nav class="toc" aria-label="Sommaire">
-        <a href="#tarifs">Tarifs</a>
-        <a href="#prime">Prime</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#acc">ACC</a>
-        <a href="#conseil">Conseil</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </header>
 
-    <!-- CONTENU -->
-    <main id="main">
-      <!-- Section Tarifs -->
-      <section id="tarifs" class="card" aria-labelledby="h-tarifs">
-        <h2 id="h-tarifs">1) Tarifs EDF OA (CRE – actualisation trimestrielle)</h2>
-        <p class="muted">
-          Sources officielles : 
-          <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/" target="_blank" rel="noopener">Photovoltaïque.info (INES/CEA)</a> · 
-          Arrêtés tarifaires publiés au JO · 
-          <a href="https://www.cre.fr/" target="_blank" rel="noopener">Commission de régulation de l’énergie (CRE)</a>
-        </p>
+    <p class="meta">
+      <span><strong>Dernière mise à jour :</strong> <time id="last-update"></time></span>
+      <span><strong>Sources :</strong> CRE · Photovoltaïque.info</span>
+      <span><strong>Périmètre :</strong> France métropolitaine</span>
+    </p>
 
-        <div class="table-wrap" role="region" aria-label="Tableau des tarifs">
-          <table>
-            <caption id="tarifs-caption">Tarifs de rachat (EDF OA) — Surplus</caption>
-            <thead><tr><th>Puissance</th><th>Tarif (€/kWh)</th><th>Exemple concret</th></tr></thead>
-            <tbody id="tarifs-table-body"><tr><td colspan="3">Chargement…</td></tr></tbody>
-          </table>
-        </div>
-        <p id="tarifs-meta" class="badge">✅ Données affichées automatiquement — en cours…</p>
+    <!-- Tarifs -->
+    <section id="tarifs" aria-labelledby="h-tarifs">
+      <h2 id="h-tarifs">Tarifs EDF OA (publication CRE, actualisation trimestrielle)</h2>
+      <p class="sources">Références : <a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/" target="_blank" rel="noopener">Photovoltaïque.info (INES‑CEA)</a>, arrêtés au JO, <a href="https://www.cre.fr/" target="_blank" rel="noopener">CRE</a>.</p>
 
-        <div class="kpi" aria-label="Chiffres clés">
-          <div class="pill" id="kpi-autoconso-value">💡 Un kWh autoconsommé vaut ~0,25 €/kWh TTC</div>
-          <div class="pill">↗️ 3 à 6× plus intéressant que la revente</div>
-        </div>
-
-        <p class="note muted" aria-label="Explication courte">
-          💡 <strong>En bref</strong> : Le <em>tarif EDF OA</em> est le prix auquel EDF rachète votre surplus d’électricité solaire
-          (chiffres officiels CRE, révisés chaque trimestre). La <em>prime à l’autoconsommation</em> est une aide versée pendant 5 ans pour encourager à consommer sa propre énergie.
-        </p>
-      </section>
-
-      <!-- Section Prime -->
-      <section id="prime" class="card" aria-labelledby="h-prime">
-        <h2 id="h-prime">2) Prime à l’autoconsommation (CRE – actualisation trimestrielle)</h2>
-        <p class="muted">Montants indicatifs pour les installations ≤ 100 kWc. Prime versée en 5 fractions annuelles par EDF OA.</p>
-
-        <div class="table-wrap" role="region" aria-label="Tableau des primes">
-          <table>
-            <thead><tr><th>Puissance de l’installation</th><th>Prime (€/kWc)</th></tr></thead>
-            <tbody id="prime-table-body"><tr><td colspan="2">Chargement…</td></tr></tbody>
-          </table>
-        </div>
-        <p id="prime-meta" class="badge">✅ Données affichées automatiquement — en cours…</p>
-      </section>
-
-      <!-- Section Solutions -->
-      <section id="solutions" class="card" aria-labelledby="h-sol">
-        <h2 id="h-sol">3) Innovation & solutions — Zoom sur MySmartBattery</h2>
-        <p>Optimisez votre autoconsommation grâce au <strong>stockage virtuel</strong> : vos excédents produits l’après‑midi sont valorisés pour couvrir vos besoins le soir/hiver (banque de kWh).</p>
-        <ul>
-          <li>✔️ <strong>Sans batterie physique</strong> à installer ni à maintenir</li>
-          <li>✔️ <strong>Lissage</strong> de la facture sur l’année</li>
-          <li>✔️ Compatible IRVE (borne) et PAC</li>
-        </ul>
-        <div class="kpi">
-          <span class="pill">–80% facture (selon profil)</span>
-          <span class="pill">Suivi & pilotage via app</span>
-        </div>
-        <div class="cta-bar">
-          <a class="btn" href="#contact">Demande de diagnostic</a>
-          <a class="btn secondary" href="https://mylight-systems.com/" target="_blank" rel="noopener">En savoir plus</a>
-        </div>
-      </section>
-
-      <!-- Section ACC -->
-      <section id="acc" class="card" aria-labelledby="h-acc">
-        <h2 id="h-acc">4) Autoconsommation collective (ACC)</h2>
-        <p>Partager localement l’électricité solaire entre plusieurs consommateurs proches (périmètre réseau), via une <strong>PMO</strong> (Personne Morale Organisatrice).</p>
-        <div class="kpi">
-          <span class="pill">PMO : organise & répartit</span>
-          <span class="pill">Producteurs : toitures PV</span>
-          <span class="pill">Consommateurs : foyers/pros</span>
-        </div>
-        <p class="note muted">Atouts : baisse de facture, ancrage local, pédagogie énergie, valorisation de toitures inutilisées.</p>
-      </section>
-
-      <!-- Section Conseil -->
-      <section id="conseil" class="card" aria-labelledby="h-adv">
-        <h2 id="h-adv">5) Le conseil d’Echome</h2>
-        <ul>
-          <li>Prioriser l’<strong>autoconsommation</strong> (profil de charge, effacements, ECS)</li>
-          <li>Ajouter un <strong>stockage virtuel</strong> pour lisser les saisons</li>
-          <li><strong>Dimensionner sobre</strong> : privilégier un haut taux d’autoconsommation</li>
-        </ul>
-      </section>
-    </main>
-
-    <!-- CONTACT -->
-    <aside id="contact" class="card" aria-labelledby="h-contact" style="margin-top:16px">
-      <h2 id="h-contact">Parlez à un expert</h2>
-      <address style="font-style:normal; line-height:1.5">
-        <strong>Echome Énergies</strong><br>
-        1159 rue de la Galandrine, 38210 Saint-Quentin-sur-Isère<br>
-        📞 <a href="tel:+33476373462">04&nbsp;76&nbsp;37&nbsp;34&nbsp;62</a> ·
-        ✉️ <a href="mailto:contact@echome-energies.fr">contact@echome-energies.fr</a> ·
-        🌐 <a href="https://www.echome-energies.fr/" target="_blank" rel="noopener">echome-energies.fr</a>
-      </address>
-      <div class="cta-bar">
-        <a class="btn" href="tel:+33476373462">Appeler</a>
-        <a class="btn secondary" href="mailto:contact@echome-energies.fr">Email</a>
-        <a class="btn" style="background:#fff;color:var(--focus);border:1px solid var(--border)" href="#" onclick="alert('Ajoute ton URL de formulaire ici'); return false;">Demande de rappel</a>
+      <div class="table-wrap">
+        <table>
+          <caption id="tarifs-caption">Rachat du surplus — EDF OA</caption>
+          <thead><tr><th>Puissance</th><th>Tarif (€/kWh)</th><th>Exemple</th></tr></thead>
+          <tbody id="tarifs-table-body">
+            <tr class="fallback-row"><td colspan="3">Les données se chargent. Si rien ne s’affiche, vérifiez <code>assets/tarifs.js</code> et <code>data/tarifs.json</code>.</td></tr>
+          </tbody>
+        </table>
       </div>
-      <h3 style="margin-top:10px">Documents utiles</h3>
-      <ul class="muted">
-        <li><a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/" target="_blank" rel="noopener">Tarifs & autoconsommation (Photovoltaïque.info)</a></li>
-        <li><a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/autoconsommation/autoconsommation-individuelle/definition-et-perimetre-de-lautoconsommation-individuelle/" target="_blank" rel="noopener">Autoconsommation individuelle</a></li>
-        <li><a href="https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/autres-aides-financieres/appels-a-projets-et-aides-regionales/contexte-et-cumul-des-aides/" target="_blank" rel="noopener">Aides & cumul</a></li>
+      <p id="tarifs-meta" class="badge">Données à jour</p>
+
+      <div class="grid">
+        <div>
+          <h3 style="margin:14px 0 6px; font:600 15px/1.35 Inter">Repères</h3>
+          <ul class="clean">
+            <li id="kpi-autoconso-value">Valeur autoconsommation : ~0,25 €/kWh TTC</li>
+            <li>Les niveaux varient selon la tranche de puissance et la période CRE.</li>
+          </ul>
+        </div>
+        <aside>
+          <div class="badge hidden" id="js-badge">Affichage dynamique actif</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Prime -->
+    <section id="prime" aria-labelledby="h-prime">
+      <h2 id="h-prime">Prime à l’autoconsommation (≤ 100 kWc)</h2>
+      <p class="sub">Aide à l’investissement versée en 5 annuités via EDF OA. Montants fixés par la CRE, révisés trimestriellement.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Puissance de l’installation</th><th>Prime (€/kWc)</th></tr></thead>
+          <tbody id="prime-table-body">
+            <tr class="fallback-row"><td colspan="2">Les données se chargent. Si rien ne s’affiche, vérifiez <code>data/primes.json</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="prime-meta" class="badge">Données à jour</p>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" aria-labelledby="h-sol">
+      <h2 id="h-sol">Solutions d’optimisation — stockage virtuel & pilotage</h2>
+      <p class="sub">Élever le taux d’autoconsommation sans batterie physique, lisser la facture sur l’année, piloter les usages.</p>
+      <ul class="clean">
+        <li>Stockage virtuel de la production excédentaire (valorisation saisonnière).</li>
+        <li>Pilotage des postes flexibles : eau chaude sanitaire, recharge, chauffage.</li>
+        <li>Suivi conso/production et alertes depuis l’application.</li>
       </ul>
-    </aside>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Étudier mon profil</a>
+        <a class="btn" href="https://mylight-systems.com/" target="_blank" rel="noopener">Documentation éditeur</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="h-contact">
+      <h2 id="h-contact">Contact</h2>
+      <p class="sub">Echome Énergies — 1159 rue de la Galandrine, 38210 Saint‑Quentin‑sur‑Isère</p>
+      <div class="cta">
+        <a class="btn primary" href="tel:+33476373462">Appeler le 04 76 37 34 62</a>
+        <a class="btn" href="mailto:contact@echome-energies.fr">contact@echome-energies.fr</a>
+        <a class="btn" href="#" onclick="alert('Renseigner l’URL du formulaire de contact.');return false;">Formulaire</a>
+      </div>
+    </section>
 
     <footer role="contentinfo">
-      <p>© <span id="year">2025</span> Echome Énergies — Tous droits réservés.</p>
+      <p>© <span id="year"></span> Echome Énergies — Tous droits réservés.</p>
     </footer>
   </div>
 
   <script>
-    // Date dynamique
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('checked-date').textContent = new Date().toLocaleDateString('fr-FR');
+    // Sécurité : tout JS est optionnel. La page s'affiche même si ce script échoue.
+    (function(){
+      try{
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('last-update').textContent = new Date().toLocaleDateString('fr-FR');
+        const jsBadge = document.getElementById('js-badge');
+        if(jsBadge) jsBadge.classList.remove('hidden');
+      }catch(e){ /* ne rien faire */ }
+    })();
   </script>
+
+  <!-- Si votre dépôt contient /assets/tarifs.js, il complétera automatiquement les tableaux ci-dessus -->
+  <script defer src="assets/tarifs.js"></script>
 </body>
 </html>
