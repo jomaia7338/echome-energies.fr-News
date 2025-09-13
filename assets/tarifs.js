@@ -1,4 +1,4 @@
-<script>
+// assets/tarifs.js — robust & basepath-safe (tarifs + primes)
 (function(){
   function root(){
     try{
@@ -42,8 +42,9 @@
     const body = document.querySelector('#tarifs-table-body');
     if(!body) return;
     let data;
-    try{ data = await getJSON('data/tarifs.json', 3); }
-    catch(e){
+    try{
+      data = await getJSON('data/tarifs.json', 3);
+    }catch(e){
       console.warn('tarifs.json KO → fallback', e);
       data = FALLBACK_TARIFS;
       const meta = document.querySelector('#tarifs-meta');
@@ -89,4 +90,3 @@
 
   document.addEventListener('DOMContentLoaded', ()=>{ renderTarifs(); renderPrimes(); });
 })();
-</script>
