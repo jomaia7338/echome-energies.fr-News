@@ -1,7 +1,7 @@
 {
   "version": "auto",
   "source": "https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/",
-  "last_updated": "2026-03-16",
+  "last_updated": "2026-03-23",
   "edf_oa_surplus": [
     {
       "range": "≤ 9 kWc",
